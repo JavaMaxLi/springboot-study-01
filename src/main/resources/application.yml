@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_boot?useUnicode=yes&characterEncoding=utf8&autoReconnect=true
+    username: root
+    password: Root123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.lxf.common.*
+  mapper-locations: classpath:com/lxf/common/**/*.xml
+logging:
+  level:
+    com.lxf.common: debug
+    com.lxf.controller: debug
+    com.lxf.config: debug
+

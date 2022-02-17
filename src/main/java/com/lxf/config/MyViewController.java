@@ -67,6 +67,6 @@ public class MyViewController implements WebMvcConfigurer {
                 }
 
             }
-        }).addPathPatterns("/**").excludePathPatterns("/","/user/login","/css/*","/fonts/*","/img/*","/js/*","/plugins/*","/favicon.ico");
+        }).addPathPatterns("/**").excludePathPatterns("/","/user/login","/druid/*","/css/*","/fonts/*","/img/*","/js/*","/plugins/*","/favicon.ico");
     }
 }

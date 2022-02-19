@@ -1,120 +1,146 @@
 package com.lxf.common.s9010;
 
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /** 系统用户*/
+@ApiModel(value = "系统用户实体类")
 public class S9010ManagerDBO
 {
     /** 
      * 流水ID
      */
+    @ApiModelProperty(value = "流水ID")
     private String puk = null;
  
     /** 
      * 用户账户
      */
+    @ApiModelProperty(value = "用户账户")
     private String userName = null;
  
     /** 
      * 用户手机号码
      */
+    @ApiModelProperty(value = "用户手机号码")
     private String phone = null;
  
     /** 
      * 登录密码
      */
+    @ApiModelProperty(value = "登录密码")
     private String password = null;
  
     /** 
      * 用户姓名
      */
+    @ApiModelProperty(value = "用户姓名")
     private String name = null;
  
     /** 
      * 用户性别
      */
+    @ApiModelProperty(value = "用户性别")
     private String sex = null;
  
     /** 
      * 用户邮箱
      */
+    @ApiModelProperty(value = "用户邮箱")
     private String mail = null;
-
+    @ApiModelProperty(value = "备注")
     private String meno = null;
 
     /**
      * 有效标识
      */
+    @ApiModelProperty(value = "有效标识")
     private String delFlag = null;
 
     /**
      * 创建时间
      */
+    @ApiModelProperty(value = "创建时间")
     private String createTime = null;
 
     /**
      * 创建者
      */
+    @ApiModelProperty(value = "创建者")
     private String creator = null;
 
     /**
      * 更新时间
      */
+    @ApiModelProperty(value = "更新时间")
     private String updateTime = null;
 
     /**
      * 最后更新者
      */
+    @ApiModelProperty(value = "最后更新者")
     private String updator = null;
 
 
     /**
      * 备用1
      */
+    @ApiModelProperty(value = "备用1")
     private String fb1 = null;
 
     /**
      * 备用2
      */
+    @ApiModelProperty(value = "备用2")
     private String fb2 = null;
 
     /**
      * 备用3
      */
+    @ApiModelProperty(value = "备用3")
     private String fb3 = null;
 
     /**
      * 备用4
      */
+    @ApiModelProperty(value = "备用4")
     private String fb4 = null;
 
     /**
      * 备用5
      */
+    @ApiModelProperty(value = "备用5")
     private String fb5 = null;
 
     /**
      * 扩展1
      */
+    @ApiModelProperty(value = "扩展1")
     private String eb1 = null;
 
     /**
      * 扩展2
      */
+    @ApiModelProperty(value = "扩展2")
     private String eb2 = null;
 
     /**
      * 扩展3
      */
+    @ApiModelProperty(value = "扩展3")
     private String eb3 = null;
 
     /**
      * 扩展4
      */
+    @ApiModelProperty(value = "扩展4")
     private String eb4 = null;
 
     /**
      * 扩展5
      */
+    @ApiModelProperty(value = "扩展5")
     private String eb5 = null;
  
     /** 

@@ -1,0 +1,33 @@
+server:
+  port: 8002
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=yes&characterEncoding=utf8&useSSL=false&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: Root123456    #Lxf_332521
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat,slf4j,wall
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.lxf.common.*
+  mapper-locations: classpath:com/lxf/common/**/*.xml
+logging:
+  level:
+    com.lxf.common: debug
+    com.lxf.controller: debug
+    com.lxf.config: debug
+#mybatis-plus:      ##MybatisPlus日志配置
+  #configuration:
+    #log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl

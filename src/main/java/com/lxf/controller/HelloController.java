@@ -3,14 +3,14 @@ package com.lxf.controller;
 import com.lxf.common.s9010.S9010ManagerDBO;
 import com.lxf.common.s9010.S9010ManagerDao;
 import com.lxf.common.s9010.S9010ManagerService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,7 +22,7 @@ import java.util.List;
  * @date 2022年01月07日 14:30
  */
 @Controller
-public class HelloController {
+public class  HelloController {
 
     @Autowired
     S9010ManagerService s9010ManagerService;
@@ -30,7 +30,7 @@ public class HelloController {
     S9010ManagerDao s9010ManagerDao;
 
     @RequestMapping(value = "/user/login", params = {"account","password"}, method = RequestMethod.POST)
-    public String userLogin(@RequestParam("account") String account, @RequestParam("password") String password, Model model, HttpServletRequest request) {
+    private String userLogin(@RequestParam("account") String account, @RequestParam("password") String password, Model model, HttpServletRequest request) {
         String digest = DigestUtils.md5DigestAsHex(password.getBytes());
         S9010ManagerDBO s9010ManagerDBO = new S9010ManagerDBO();
         s9010ManagerDBO.setPassword(digest);
@@ -68,6 +68,14 @@ public class HelloController {
         }
         model.addAttribute("user",s9010List.get(0));
         return "index";
+    }
+
+    @ApiOperation(value = "index1方法")
+    @GetMapping(value = "/index1")
+    @ResponseBody
+    public List<S9010ManagerDBO> index1(@ApiParam(value = "系统用户实体类") S9010ManagerDBO s9010ManagerDBO) {
+        List<S9010ManagerDBO> s9010List = s9010ManagerService.doSelectList(s9010ManagerDBO);
+        return s9010List;
     }
 
     @RequestMapping(value = "/docs")

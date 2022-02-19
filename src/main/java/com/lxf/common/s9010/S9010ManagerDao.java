@@ -1,13 +1,14 @@
 package com.lxf.common.s9010;
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 /** 系统用户*/
 @Mapper
-public interface S9010ManagerDao {
+public interface S9010ManagerDao extends BaseMapper<S9010ManagerDBO> {
 
     List<S9010ManagerDBO> doSelectList(S9010ManagerDBO param);
 

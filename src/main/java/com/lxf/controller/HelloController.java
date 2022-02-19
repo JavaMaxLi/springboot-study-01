@@ -3,6 +3,8 @@ package com.lxf.controller;
 import com.lxf.common.s9010.S9010ManagerDBO;
 import com.lxf.common.s9010.S9010ManagerDao;
 import com.lxf.common.s9010.S9010ManagerService;
+import com.lxf.common.user.User;
+import com.lxf.common.user.UserMapper;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.tomcat.util.security.MD5Encoder;
@@ -28,6 +30,8 @@ public class  HelloController {
     S9010ManagerService s9010ManagerService;
     @Autowired
     S9010ManagerDao s9010ManagerDao;
+    @Autowired
+    UserMapper userMapper;
 
     @RequestMapping(value = "/user/login", params = {"account","password"}, method = RequestMethod.POST)
     private String userLogin(@RequestParam("account") String account, @RequestParam("password") String password, Model model, HttpServletRequest request) {
@@ -76,6 +80,14 @@ public class  HelloController {
     public List<S9010ManagerDBO> index1(@ApiParam(value = "系统用户实体类") S9010ManagerDBO s9010ManagerDBO) {
         List<S9010ManagerDBO> s9010List = s9010ManagerService.doSelectList(s9010ManagerDBO);
         return s9010List;
+    }
+
+    @ApiOperation(value = "user方法")
+    @GetMapping(value = "/user")
+    @ResponseBody
+    public List<User> user(@ApiParam(value = "系统用户实体类") S9010ManagerDBO s9010ManagerDBO) {
+        List<User> list = userMapper.selectList(null);
+        return list;
     }
 
     @RequestMapping(value = "/docs")

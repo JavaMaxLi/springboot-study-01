@@ -37,6 +37,24 @@ class SpringbootStudy01ApplicationTests {
         System.out.println(insert);
     }
 
+    @Test
+    void testUpdate() {
+        User dbo = new User();
+        dbo.setPuk(17);
+        User user = userMapper.selectById(13);
+        for (int i = 0; i < 5; i++) {
+            new Thread(() ->{
+                user.setPuk(13);
+                user.setName("laogou");
+                user.setAge(69);
+                user.setIdCard("3321562264561216");
+                user.setFromDatabase("spring_boot");
+                int insert = userMapper.updateById(user);
+                System.out.println(insert);
+            }).start();
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
 

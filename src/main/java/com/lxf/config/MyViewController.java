@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author LiXiaoFeng
  * @date 2022年01月13日 10:06
  */
-@Configuration
+//@Configuration
 public class MyViewController implements WebMvcConfigurer {
    /* @Override
     public void addViewControllers(ViewControllerRegistry registry) {

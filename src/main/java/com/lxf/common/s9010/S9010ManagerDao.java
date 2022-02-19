@@ -8,7 +8,7 @@ import java.util.List;
 
 /** 系统用户*/
 @Mapper
-public interface S9010ManagerDao extends BaseMapper<S9010ManagerDBO> {
+public interface S9010ManagerDao{
 
     List<S9010ManagerDBO> doSelectList(S9010ManagerDBO param);
 

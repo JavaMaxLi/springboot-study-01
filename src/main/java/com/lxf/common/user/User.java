@@ -1,6 +1,12 @@
 package com.lxf.common.user;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.Version;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author LiXiaoFeng
@@ -8,6 +14,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
+    @TableId
     private int puk;
 
     private String name;
@@ -17,6 +24,24 @@ public class User implements Serializable {
     private String idCard;
 
     private String fromDatabase;
+
+    @Version
+    private int version;
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
 
     public int getPuk() {
         return puk;
@@ -58,6 +83,22 @@ public class User implements Serializable {
         this.fromDatabase = fromDatabase;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -66,6 +107,8 @@ public class User implements Serializable {
                 ", age=" + age +
                 ", idCard='" + idCard + '\'' +
                 ", fromDatabase='" + fromDatabase + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }

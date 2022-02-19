@@ -1,21 +1,23 @@
 server:
   port: 8003
-
+##腾讯云mysql配置
 spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=yes&characterEncoding=utf8&useSSL=false&autoReconnect=true&serverTimezone=UTC
+    url: jdbc:mysql://101.43.13.93:3306/spring_boot?useUnicode=yes&characterEncoding=utf8&useSSL=false&autoReconnect=true&serverTimezone=UTC
     username: root
-    password: Root123456    #Lxf_332521
+    password: Lxf_332521    #Lxf_332521
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat,slf4j,wall
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-
+  ##统一实体类Date字段时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: UTC
 
 
 mybatis:
@@ -28,4 +30,5 @@ logging:
     com.lxf.common: debug
     com.lxf.controller: debug
     com.lxf.config: debug
+
 

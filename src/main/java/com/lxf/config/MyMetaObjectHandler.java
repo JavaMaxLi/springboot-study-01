@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-
+/**
+ * MybatisPlus属性自动填充的拦截器
+ * @return
+ */
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override

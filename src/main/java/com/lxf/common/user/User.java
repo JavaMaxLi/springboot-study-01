@@ -1,9 +1,6 @@
 package com.lxf.common.user;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -25,8 +22,20 @@ public class User implements Serializable {
 
     private String fromDatabase;
 
+    @TableLogic
+    private int deleted;
+
+    //乐观锁版本号
     @Version
     private int version;
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
+    }
 
     public int getVersion() {
         return version;
